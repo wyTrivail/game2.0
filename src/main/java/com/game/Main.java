@@ -3,10 +3,10 @@ package com.game;
 import com.game.load.IScene;
 import com.game.load.impl.Scene;
 import com.game.load.impl.User;
-import com.game.playmodel.IPlayModel;
-import com.game.playmodel.PlayModelController;
-import com.game.playmodel.PlayModelControllerFactory;
-import com.game.playmodel.pvp.client.PVPModel;
+import com.game.playmodel.client.IPlayModel;
+import com.game.playmodel.client.PlayModelController;
+import com.game.playmodel.client.PlayModelControllerFactory;
+import com.game.playmodel.client.pvp.PVPModel;
 
 /**
  * Created with IntelliJ IDEA.

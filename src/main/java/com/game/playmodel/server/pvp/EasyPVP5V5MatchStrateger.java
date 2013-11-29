@@ -1,4 +1,4 @@
-package com.game.playmodel.pvp.server;
+package com.game.playmodel.server.pvp;
 
 import java.util.ArrayList;
 import java.util.List;

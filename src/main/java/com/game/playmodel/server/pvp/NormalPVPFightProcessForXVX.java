@@ -1,10 +1,10 @@
-package com.game.playmodel.pvp.server;
+package com.game.playmodel.server.pvp;
 
 import java.util.List;
 
 import com.game.load.IUser;
-import com.game.playmodel.FlightActionFactory;
-import com.game.playmodel.IFightAction;
+import com.game.playmodel.server.FlightActionFactory;
+import com.game.playmodel.server.IFightAction;
 
 public class NormalPVPFightProcessForXVX extends AbstractPVPFightProcessForXVX {
 

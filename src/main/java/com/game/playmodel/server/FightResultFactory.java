@@ -1,4 +1,4 @@
-package com.game.playmodel;
+package com.game.playmodel.server;
 
 import com.game.base.IShow;
 import com.game.base.impl.NormalShow;

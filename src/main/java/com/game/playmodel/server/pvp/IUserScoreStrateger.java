@@ -1,4 +1,4 @@
-package com.game.playmodel.pvp.server;
+package com.game.playmodel.server.pvp;
 
 import com.game.load.IUser;
 

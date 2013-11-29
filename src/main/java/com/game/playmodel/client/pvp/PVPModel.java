@@ -1,12 +1,12 @@
-package com.game.playmodel.pvp.client;
+package com.game.playmodel.client.pvp;
 
 import java.util.List;
 
-import com.game.playmodel.IFightAction;
-import com.game.playmodel.IFightProcess;
-import com.game.playmodel.IPlayModel;
-import com.game.playmodel.pvp.server.IPVPController;
-import com.game.playmodel.pvp.server.IUserScoreStrateger;
+import com.game.playmodel.client.IPlayModel;
+import com.game.playmodel.server.IFightAction;
+import com.game.playmodel.server.IFightProcess;
+import com.game.playmodel.server.pvp.IPVPController;
+import com.game.playmodel.server.pvp.IUserScoreStrateger;
 import com.game.base.SessionFactory;
 import com.game.load.IUser;
 /**

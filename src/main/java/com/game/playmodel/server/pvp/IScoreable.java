@@ -1,4 +1,4 @@
-package com.game.playmodel.pvp.server;
+package com.game.playmodel.server.pvp;
 
 /**
  * 带有分数属性的类的接口

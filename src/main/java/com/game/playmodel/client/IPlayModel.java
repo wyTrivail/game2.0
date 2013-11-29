@@ -1,4 +1,4 @@
-package com.game.playmodel;
+package com.game.playmodel.client;
 
 /**
  * Created with IntelliJ IDEA.

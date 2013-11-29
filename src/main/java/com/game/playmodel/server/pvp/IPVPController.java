@@ -1,7 +1,7 @@
-package com.game.playmodel.pvp.server;
+package com.game.playmodel.server.pvp;
 
 import com.game.load.IUser;
-import com.game.playmodel.pvp.client.PVPModel;
+import com.game.playmodel.client.pvp.PVPModel;
 
 public interface IPVPController {
 	

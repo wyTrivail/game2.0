@@ -1,6 +1,6 @@
 package com.game.playmodel.pve;
 
-import com.game.playmodel.IPlayModel;
+import com.game.playmodel.client.IPlayModel;
 
 /**
  * Created with IntelliJ IDEA.

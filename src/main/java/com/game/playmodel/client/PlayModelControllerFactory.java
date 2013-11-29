@@ -1,11 +1,11 @@
-package com.game.playmodel;
+package com.game.playmodel.client;
 
+import com.game.playmodel.client.pvp.PVPModel;
 import com.game.playmodel.pve.PVEModel;
-import com.game.playmodel.pvp.client.PVPModel;
-import com.game.playmodel.pvp.server.EasyPVP5V5MatchStrateger;
-import com.game.playmodel.pvp.server.EasyUserScoreStrateger;
-import com.game.playmodel.pvp.server.NormalPVPFightProcessForXVX;
-import com.game.playmodel.pvp.server.PVPController;
+import com.game.playmodel.server.pvp.EasyPVP5V5MatchStrateger;
+import com.game.playmodel.server.pvp.EasyUserScoreStrateger;
+import com.game.playmodel.server.pvp.NormalPVPFightProcessForXVX;
+import com.game.playmodel.server.pvp.PVPController;
 
 public class PlayModelControllerFactory {
 	

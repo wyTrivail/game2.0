@@ -1,12 +1,12 @@
-package com.game.playmodel.pvp.server;
+package com.game.playmodel.server.pvp;
 
 import java.util.ArrayList;
 import java.util.List;
 
 import com.game.load.IUser;
-import com.game.playmodel.IFightAction;
-import com.game.playmodel.IFightProcess;
-import com.game.playmodel.pvp.client.PVPModel;
+import com.game.playmodel.client.pvp.PVPModel;
+import com.game.playmodel.server.IFightAction;
+import com.game.playmodel.server.IFightProcess;
 
 public class PVPController implements IPVPController {
 	

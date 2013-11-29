@@ -1,4 +1,4 @@
-package com.game.playmodel;
+package com.game.playmodel.client;
 
 import java.util.HashMap;
 import java.util.Map;
