@@ -1,7 +1,5 @@
 package com.game.playmodel;
 
-import java.util.List;
-
 import com.game.base.IShow;
 import com.game.load.IUser;
 
@@ -17,7 +15,7 @@ public interface IFightResult {
 	 * 结果的主体
 	 * @return
 	 */
-	List<IUser> getFrom();
+	IUser getUser();
 	
 	/**
 	 * 返回结果类型，如掉血、减防等等
@@ -35,6 +33,30 @@ public interface IFightResult {
 	 * 结果动画
 	 * @return
 	 */
-	IShow getShow();
+	void setShow(IShow show);
+	
+	/**
+	 * 展示动画
+	 */
+	void show();
+	
+	/**
+	 * 获取操作
+	 * @return
+	 */
+	IFightAction getAction();
+	
+	/**
+	 * 设置操作
+	 * @param action
+	 * @return
+	 */
+	void setAction(IFightAction action);
+	
+	/**
+	 * 设置伤害计算策略
+	 * @param harmStratege
+	 */
+	void setHarmStratege(IHarmStratege harmStratege);
 
 }

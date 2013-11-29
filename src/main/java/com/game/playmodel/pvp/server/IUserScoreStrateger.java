@@ -1,4 +1,4 @@
-package com.game.playmodel.pvp;
+package com.game.playmodel.pvp.server;
 
 import com.game.load.IUser;
 
@@ -7,7 +7,7 @@ import com.game.load.IUser;
  * @author XR
  *
  */
-public interface UserScoreStrateger {
+public interface IUserScoreStrateger {
 	
 	public double getScore(IUser user);
 

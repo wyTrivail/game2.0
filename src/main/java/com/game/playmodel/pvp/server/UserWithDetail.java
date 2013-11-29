@@ -1,9 +1,9 @@
-package com.game.playmodel.pvp;
+package com.game.playmodel.pvp.server;
 
 import com.game.load.IUser;
 import com.game.playmodel.IPlayModel;
 
-public class UserWithDetail implements Scoreable {
+public class UserWithDetail implements IUser, IScoreable {
 	
 	private IUser user;
 	
@@ -33,6 +33,10 @@ public class UserWithDetail implements Scoreable {
 
 	public void setModel(IPlayModel model) {
 		this.model = model;
+	}
+
+	public String getUserName() {
+		return user.getUserName();
 	}
 
 }

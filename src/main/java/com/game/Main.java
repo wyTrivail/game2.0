@@ -6,7 +6,7 @@ import com.game.load.impl.User;
 import com.game.playmodel.IPlayModel;
 import com.game.playmodel.PlayModelController;
 import com.game.playmodel.PlayModelControllerFactory;
-import com.game.playmodel.pvp.PVP5v5Model;
+import com.game.playmodel.pvp.client.PVPModel;
 
 /**
  * Created with IntelliJ IDEA.

@@ -13,10 +13,22 @@ import com.game.load.IUser;
 public interface IFightAction {
 	
 	/**
+	 * 获取操作类型
+	 * @return
+	 */
+	String getType();
+	
+	/**
 	 * 操作主体
 	 * @return
 	 */
 	List<IUser> getSrc();
+	
+	/**
+	 * 操作客体
+	 * @return
+	 */
+	List<IUser> getDes();
 	
 	/**
 	 * 操作类型
@@ -25,15 +37,44 @@ public interface IFightAction {
 	String getActionType();
 	
 	/**
+	 * 基础伤害类型，如血、防御等
+	 * @return
+	 */
+	String getBaseHurmType();
+	
+	/**
 	 * 基础伤害
 	 * @param user
 	 * @return
 	 */
 	int getBaseHurm();
-	
+
 	/**
-	 * 结果动画
+	 * 动画
 	 * @return
 	 */
-	IShow getShow();
+	void setShow(IShow show);
+	
+	/**
+	 * 设置resulttype
+	 * @param resultType
+	 */
+	void setResultType(String resultType);
+	
+	/**
+	 * 获取resulttype
+	 * @return
+	 */
+	String getResultType();
+	
+	/**
+	 * 结果
+	 * @return
+	 */
+	List<IFightResult> getResult();
+
+	/**
+	 * 展示动画
+	 */
+	void show();
 }

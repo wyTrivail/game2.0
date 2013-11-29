@@ -1,8 +1,12 @@
-package com.game.playmodel.pvp;
+package com.game.playmodel.pvp.client;
 
 import java.util.List;
 
+import com.game.playmodel.IFightAction;
+import com.game.playmodel.IFightProcess;
 import com.game.playmodel.IPlayModel;
+import com.game.playmodel.pvp.server.IPVPController;
+import com.game.playmodel.pvp.server.IUserScoreStrateger;
 import com.game.base.SessionFactory;
 import com.game.load.IUser;
 /**
@@ -12,34 +16,37 @@ import com.game.load.IUser;
  * Time: 下午8:18
  * To change this template use File | Settings | File Templates.
  */
-public class PVP5v5Model implements IPlayModel{
+public class PVPModel implements IPlayModel{
 	
-	private PVP5v5Controller controller;
-	
-	private UserScoreStrateger strateger;
+	private IPVPController controller;
     
     private List<List<IUser>> users = null;
     
     private boolean matched = false;
+    
+    private List<IFightAction> actions;
 	
     @Override
     public void play() {
     	IUser user = SessionFactory.getSessioin().getCurrentUser();
-    	controller.addUser(user, strateger, this);
+    	controller.addUser(user, this);
     	int times = 0;
     	while(times < 10){
     		Thread.sleep(5000);
     		if(this.matched){
-    			
+    			for(IFightAction a : actions){
+    				a.show();
+    			}
     		}
     	}
+    	System.out.println("匹配失败，继续其他模式吧");
     }
 
-	public PVP5v5Controller getController() {
+	public IPVPController getController() {
 		return controller;
 	}
 
-	public void setController(PVP5v5Controller controller) {
+	public void setController(IPVPController controller) {
 		this.controller = controller;
 	}
 
@@ -51,11 +58,11 @@ public class PVP5v5Model implements IPlayModel{
 		this.users = users;
 	}
 
-	public boolean getMatched() {
-		return matched;
-	}
-
 	public void setMatched(boolean matched) {
 		this.matched = matched;
+	}
+
+	public void setActions(List<IFightAction> actions) {
+		this.actions = actions;
 	}
 }
