@@ -13,7 +13,7 @@ public class FightUnit extends BaseUnit {
     private Integer power;
     private Integer intelligence;
     private IAttackAttribute attackAttribute;
-
+    private float life = 100.0f;
     public Integer getPower() {
         return power;
     }
@@ -36,5 +36,15 @@ public class FightUnit extends BaseUnit {
 
     public void setAttackAttribute(IAttackAttribute attackAttribute) {
         this.attackAttribute = attackAttribute;
+    }
+
+    @Override
+    public float getLife() {
+        return this.life;
+    }
+
+    @Override
+    public void setLife(float life) {
+        this.life = life;
     }
 }

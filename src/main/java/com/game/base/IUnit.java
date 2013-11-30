@@ -14,4 +14,6 @@ public interface IUnit {
     void setAttackAttribute(IAttackAttribute attackAttribute);
     void setModel(IModel model);
     IModel getModel();
+    float getLife();
+    void setLife(float life);
 }
