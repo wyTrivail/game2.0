@@ -27,7 +27,7 @@ public class TimeApart extends Observable{
 	           this.notifyObservers();
 
 	       }
-	      System.out.println("µ±Ç°Ê±¼äÊÇ"+Time);
+	      System.out.println("å½“å‰æ—¶é—´æ˜¯:"+Time);
 	    }
 
 	}

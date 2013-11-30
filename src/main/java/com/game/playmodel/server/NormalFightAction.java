@@ -1,5 +1,6 @@
 package com.game.playmodel.server;
 
+import java.util.LinkedList;
 import java.util.List;
 
 import com.game.base.IShow;
@@ -17,7 +18,7 @@ public class NormalFightAction implements IFightAction {
 	IShow show;
 	String resultType = "NormalBloodResult";
 	String type = "NormalFightAction";
-	List<IFightResult> result;
+	List<IFightResult> result = new LinkedList<IFightResult>();
 	
 	public NormalFightAction(List<IUser> src, List<IUser> des){
 		this.src = src; 

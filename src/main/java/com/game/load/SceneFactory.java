@@ -1,15 +1,18 @@
 package com.game.load;
 
+import com.game.base.SessionFactory;
 import com.game.load.impl.SceneAthletics;
 import com.game.load.impl.SceneDuplicate;
 import com.game.load.impl.SceneTown;
 
 public class SceneFactory {
 	public static IScene creator(int which){
-		//getClass ²úÉúSample Ò»°ã¿ÉÊ¹ÓÃ¶¯Ì¬Àà×°ÔØ×°ÈëÀà¡£
-		if (which==1)
+		//getClass ï¿½ï¿½ï¿½ï¿½Sample Ò»ï¿½ï¿½ï¿½Ê¹ï¿½Ã¶ï¿½Ì¬ï¿½ï¿½×°ï¿½ï¿½×°ï¿½ï¿½ï¿½à¡£
+		if (which==1){
+            SceneTown sceneTown = new SceneTown();
+            sceneTown.setMyUser(SessionFactory.getSessioin().getCurrentUser());
 			return new SceneTown();
-		else if (which==2)
+        }else if (which==2)
 			return new SceneDuplicate();
 		else if(which==3)
 			return new SceneAthletics();

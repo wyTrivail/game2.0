@@ -1,5 +1,7 @@
 package com.game.base.impl;
 
+import com.game.base.IAttackAttribute;
+
 /**
  * Created with IntelliJ IDEA.
  * User: xianliu.wy
@@ -9,4 +11,6 @@ package com.game.base.impl;
  */
 public class LongFightUnit extends FightUnit {
     private Integer shootRange;
+
+
 }

@@ -32,7 +32,11 @@ public class PVPModel implements IPlayModel{
     	controller.addUser(user, this);
     	int times = 0;
     	while(times < 10){
-    		Thread.sleep(5000);
+            try{
+    		    Thread.sleep(5000);
+            }catch (Exception ex){
+                ex.printStackTrace();
+            }
     		if(this.matched){
     			for(IFightAction a : actions){
     				a.show();

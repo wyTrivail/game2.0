@@ -7,13 +7,22 @@ import com.game.load.impl.UserWarrior;
 
 
 public class UserFactory {
-	public static IUser creator(int which){
-		//getClass ²úÉúSample Ò»°ã¿ÉÊ¹ÓÃ¶¯Ì¬Àà×°ÔØ×°ÈëÀà¡£
-		if (which==1)
+	public static IUser creator(String name,String gender,String work, ICountry country){
+		//getClass ï¿½ï¿½ï¿½ï¿½Sample Ò»ï¿½ï¿½ï¿½Ê¹ï¿½Ã¶ï¿½Ì¬ï¿½ï¿½×°ï¿½ï¿½×°ï¿½ï¿½ï¿½à¡£
+		if (work.equals("2")){
+            IUser userMaster = new UserMaster();
+            userMaster.setUserName(name);
+            userMaster.setGender(Integer.getInteger(gender));
+            userMaster.setCountry(country);
 			return new UserMaster();
-		else if (which==2)
+        }else if (work.equals("1")){
+
+            IUser userWarrior = new UserWarrior();
+            userWarrior.setUserName(name);
+            userWarrior.setGender(Integer.getInteger(gender));
+            userWarrior.setCountry(country);
 			return new UserWarrior();
-		else 
+        }else
 			return new User();
 		}
 }
