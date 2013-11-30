@@ -11,6 +11,8 @@ import com.game.playmodel.client.PlayModelControllerFactory;
 
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
+import java.util.HashMap;
+import java.util.Map;
 
 /**
  * Created with IntelliJ IDEA.
@@ -21,7 +23,11 @@ import java.io.InputStreamReader;
  */
 public class Main {
     static ICountryFactory countryFactory;
+    static Map<String,String> map = new HashMap<String, String>();
     public static void main(String arg[])throws Exception{
+        map.put("1","pvp5v5");
+        map.put("2", "pvp5v5v5");
+        map.put("3", "pvp10v10");
         BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(System.in));
         System.out.println("欢迎进入三国无双online");
         System.out.println("请设定人物职业：");
@@ -59,22 +65,25 @@ public class Main {
         IScene scene = SceneFactory.creator(1);
         scene.load();
         System.out.println("欢迎进入我方阵营！");
-        PlayModelController playModelController = 
-        		PlayModelControllerFactory.getPlayModelController();
-        playModelController.getPlayModel("pvp5v5").play();
-        playModelController.getPlayModel("pvp10v10").play();
-        /*System.out.println("请选择游戏模式");
+
+        while(true){
+        System.out.println("请选择游戏模式");
         System.out.println("1.pvp; 2.pve");
 
         String gameModel = bufferedReader.readLine();
         if(gameModel.equals("1")){//pvp
-            System.out.println("已进入竞技场，请输入竞技人数：");
+            System.out.println("请选择竞技场：");
+            System.out.println("1.5v5; 2.5v5v5; 3.10v10");
+            String num = bufferedReader.readLine();
+
+
             PlayModelController playModelController =
                     PlayModelControllerFactory.getPlayModelController();
-            playModelController.getPlayModel("pvp5v5").play();
+            playModelController.getPlayModel(map.get(num)).play();
         }else{//pve
 
-        } */
+        }
+        }
 
     }
 }
