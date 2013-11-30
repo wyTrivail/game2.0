@@ -17,12 +17,14 @@ import com.game.playmodel.client.pvp.PVPModel;
  */
 public class Main {
     public static void main(String arg[])throws Exception{
-        User user = new User();//建议使用工厂
-        IScene scene = new Scene();//同上
-        scene.load();
+//        User user = new User();//建议使用工厂
+//        IScene scene = new Scene();//同上
+//        scene.load();
+    	IUser user = new User();
+    	SessionFactory.getSessioin().setCurrentUser(user);
         PlayModelController playModelController = 
         		PlayModelControllerFactory.getPlayModelController();
-        playModelController.getPlayModel("pvp").play();
+        playModelController.getPlayModel("pvp5v5").play();
         
     }
 }

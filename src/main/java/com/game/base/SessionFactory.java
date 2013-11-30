@@ -2,14 +2,18 @@ package com.game.base;
 
 public class SessionFactory {
 	
-	private static ISession sessioin;
+	private static ISession session;
+	
+	static{
+		session = new Session();
+	}
 
 	public static ISession getSessioin() {
-		return sessioin;
+		return session;
 	}
 
 	public static void setSessioin(ISession sessioin) {
-		SessionFactory.sessioin = sessioin;
+		SessionFactory.session = sessioin;
 	}
 
 }

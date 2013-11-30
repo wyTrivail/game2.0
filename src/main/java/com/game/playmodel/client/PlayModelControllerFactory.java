@@ -19,7 +19,7 @@ public class PlayModelControllerFactory {
 		controller.setUserScoreStrateger(new EasyUserScoreStrateger());
 		controller.setProcess(new NormalPVPFightProcessForXVX());
 		model.setController(controller);
-		c.addPlayModel("pvp5v5", new PVPModel());
+		c.addPlayModel("pvp5v5", model);
 	}
 	
 	public static PlayModelController getPlayModelController(){
