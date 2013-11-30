@@ -1,5 +1,7 @@
 package com.game.playmodel.server.pvp;
 
+import com.game.base.IUnit;
+import com.game.load.ICountry;
 import com.game.load.IUser;
 import com.game.playmodel.client.IPlayModel;
 
@@ -38,5 +40,35 @@ public class UserWithDetail implements IUser, IScoreable {
 	public String getUserName() {
 		return user.getUserName();
 	}
+
+    @Override
+    public void setGender(Integer gender) {
+        user.setGender(gender);
+    }
+
+    @Override
+    public void setProfession(String profession) {
+        user.setProfession(profession);
+    }
+
+    @Override
+    public void setCountry(ICountry country) {
+        user.setCountry(country);
+    }
+
+    @Override
+    public void setUserName(String userName) {
+        user.setUserName(userName);
+    }
+
+    @Override
+    public void setUnit(IUnit unit) {
+        user.setUnit(unit);
+    }
+
+    @Override
+    public IUnit getUnit() {
+        return user.getUnit();
+    }
 
 }

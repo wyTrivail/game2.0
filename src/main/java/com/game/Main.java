@@ -27,12 +27,15 @@ public class Main {
         System.out.println("欢迎进入三国无双online");
         System.out.println("请设定人物职业：");
         System.out.println("1.战士； 2.法师");
+
         String work = bufferedReader.readLine();
         System.out.println("请设定人物性别");
         System.out.println("1.男； 2.女");
+
         String gender = bufferedReader.readLine();
-        System.out.println("请选择阵营");
+
         System.out.println("1.魏国； 2.吴国； 3.蜀国");
+
 
         String countryName = bufferedReader.readLine();//阵营
         ICountry country = null;
@@ -48,6 +51,7 @@ public class Main {
         }
 
         System.out.println("请为自己起个大名吧英雄！");
+
         String name = bufferedReader.readLine();
         System.out.println("正在进入场景");
             IUser user = UserFactory.creator(name, gender,work, country);
