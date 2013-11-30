@@ -62,6 +62,7 @@ public class Main {
         PlayModelController playModelController = 
         		PlayModelControllerFactory.getPlayModelController();
         playModelController.getPlayModel("pvp5v5").play();
+        playModelController.getPlayModel("pvp10v10").play();
         /*System.out.println("请选择游戏模式");
         System.out.println("1.pvp; 2.pve");
 

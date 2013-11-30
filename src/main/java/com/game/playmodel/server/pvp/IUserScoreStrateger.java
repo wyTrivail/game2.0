@@ -9,6 +9,6 @@ import com.game.load.IUser;
  */
 public interface IUserScoreStrateger {
 	
-	public double getScore(IUser user);
+	public float getScore(IUser user);
 
 }
