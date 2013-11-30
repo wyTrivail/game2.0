@@ -54,7 +54,8 @@ public abstract class Scene implements IScene{
     protected abstract void backgroundMusic();
     
     protected void allocUnit(){
-        System.out.println(myUser.getUserName());
+
+        myUser.getUnit().draw();
         /*npc=UserFactory.creator(3);
     	((User)npc).setUnit(unit);
     	

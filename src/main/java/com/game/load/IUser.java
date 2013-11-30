@@ -16,4 +16,5 @@ public interface IUser {
         void setCountry(ICountry country);
     void setUserName(String userName);
     void setUnit(IUnit unit);
+    IUnit getUnit();
 }
