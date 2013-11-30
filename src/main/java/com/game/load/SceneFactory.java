@@ -11,7 +11,7 @@ public class SceneFactory {
 		if (which==1){
             SceneTown sceneTown = new SceneTown();
             sceneTown.setMyUser(SessionFactory.getSessioin().getCurrentUser());
-			return new SceneTown();
+			return sceneTown;
         }else if (which==2)
 			return new SceneDuplicate();
 		else if(which==3)

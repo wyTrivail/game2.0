@@ -10,9 +10,9 @@ import com.game.base.IModel;
  * To change this template use File | Settings | File Templates.
  */
 public class BaseModel implements IModel {
-    private String modelName;
-    private String shape;
-    private String color;
+    private String modelName = "model1";
+    private String shape = "sphere";
+    private String color = "blue";
 
     @Override
     public void load() {
