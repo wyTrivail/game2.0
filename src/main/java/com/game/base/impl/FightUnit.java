@@ -10,10 +10,10 @@ import com.game.base.IAttackAttribute;
  * To change this template use File | Settings | File Templates.
  */
 public class FightUnit extends BaseUnit {
-    private Integer power;
-    private Integer intelligence;
+    private Integer power = 100;
+    private Integer intelligence = 100;
     private IAttackAttribute attackAttribute;
-
+    private float life = 100.0f;
     public Integer getPower() {
         return power;
     }
@@ -36,5 +36,15 @@ public class FightUnit extends BaseUnit {
 
     public void setAttackAttribute(IAttackAttribute attackAttribute) {
         this.attackAttribute = attackAttribute;
+    }
+
+    @Override
+    public float getLife() {
+        return this.life;
+    }
+
+    @Override
+    public void setLife(float life) {
+        this.life = life;
     }
 }
