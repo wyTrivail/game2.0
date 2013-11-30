@@ -1,14 +1,13 @@
 package com.game.load;
 
-
 /**
  * Created with IntelliJ IDEA.
- * User: xianliu.wy
- * Date: 13-11-26
- * Time: 下午8:12
+ * User: wy
+ * Date: 13-11-30
+ * Time: 下午3:23
  * To change this template use File | Settings | File Templates.
  */
-public interface IScene  {
+public interface IBuildingStyle {
+    void setColor(String color);
 
-    void load();
 }

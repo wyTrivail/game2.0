@@ -1,5 +1,7 @@
 package com.game.load;
 
+import com.game.base.IUnit;
+
 /**
  * Created with IntelliJ IDEA.
  * User: xianliu.wy
@@ -8,7 +10,10 @@ package com.game.load;
  * To change this template use File | Settings | File Templates.
  */
 public interface IUser {
-	
-	String getUserName();
-
+        String getUserName();
+        void setGender(Integer gender);
+        void setProfession(String profession);
+        void setCountry(ICountry country);
+    void setUserName(String userName);
+    void setUnit(IUnit unit);
 }

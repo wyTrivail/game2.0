@@ -1,5 +1,6 @@
 package com.game.base.impl;
 
+import com.game.base.IAttackAttribute;
 import com.game.base.IModel;
 import com.game.base.IUnit;
 
@@ -55,5 +56,10 @@ public class BaseUnit implements IUnit {
     @Override
     public String getID() {
         return this.code;
+    }
+
+    @Override
+    public void setAttackAttribute(IAttackAttribute attackAttribute) {
+        return;
     }
 }

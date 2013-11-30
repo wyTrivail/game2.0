@@ -1,6 +1,7 @@
 package com.game.load.impl;
 
 import com.game.base.IUnit;
+import com.game.load.ICountry;
 import com.game.load.IUser;
 
 /**
@@ -14,7 +15,8 @@ public class User implements IUser {
     private IUnit unit;
 	private String profession;//职业
     private Integer gender;
-    
+    private String userName = "unnameed";
+    private ICountry country;
     public IUnit getUnit() {
 		return unit;
 	}
@@ -27,13 +29,27 @@ public class User implements IUser {
 	public void setProfession(String profession) {
 		this.profession = profession;
 	}
-	public Integer getGender() {
+
+    @Override
+    public void setCountry(ICountry country) {
+        this.country = country;
+    }
+
+    @Override
+    public void setUserName(String userName) {
+        this.userName = userName;
+    }
+
+    public Integer getGender() {
 		return gender;
 	}
 	public void setGender(Integer gender) {
 		this.gender = gender;
 	}
-	public String getUserName() {
-		return "username";
-	}
+
+
+    @Override
+    public String getUserName() {
+        return this.userName;
+    }
 }

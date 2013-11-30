@@ -11,4 +11,5 @@ public interface IUnit {
     void load();
     void draw();
     String getID();
+    void setAttackAttribute(IAttackAttribute attackAttribute);
 }

@@ -37,6 +37,7 @@ public class PVPModel implements IPlayModel{
 				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
+
     		if(this.matched){
     			for(IFightAction a : actions){
     				a.show();

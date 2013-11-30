@@ -39,6 +39,7 @@ public abstract class Scene implements IScene{
 	
 	public final void load() {
         //To change body of implemented methods use File | Settings | File Templates.
+
     	timeManagement();
     	manipulationMenu();
     	worldMap();
@@ -53,10 +54,11 @@ public abstract class Scene implements IScene{
     protected abstract void backgroundMusic();
     
     protected void allocUnit(){
-        npc=UserFactory.creator(3);
+        System.out.println(myUser.getUserName());
+        /*npc=UserFactory.creator(3);
     	((User)npc).setUnit(unit);
     	
     	myUser=UserFactory.creator(1);
-    	((User)myUser).setUnit(unit);
+    	((User)myUser).setUnit(unit); */
     }
 }
