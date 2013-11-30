@@ -12,6 +12,25 @@ import com.game.load.IUser;
  */
 public class User implements IUser {
     private IUnit unit;
-    private String profession;//职业
+	private String profession;//职业
     private Integer gender;
+    
+    public IUnit getUnit() {
+		return unit;
+	}
+	public void setUnit(IUnit unit) {
+		this.unit = unit;
+	}
+	public String getProfession() {
+		return profession;
+	}
+	public void setProfession(String profession) {
+		this.profession = profession;
+	}
+	public Integer getGender() {
+		return gender;
+	}
+	public void setGender(Integer gender) {
+		this.gender = gender;
+	}
 }

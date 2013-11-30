@@ -1,5 +1,6 @@
 package com.game.load;
 
+
 /**
  * Created with IntelliJ IDEA.
  * User: xianliu.wy
@@ -7,6 +8,6 @@ package com.game.load;
  * Time: 下午8:12
  * To change this template use File | Settings | File Templates.
  */
-public interface IScene {
+public interface IScene  {
     void load();
 }
