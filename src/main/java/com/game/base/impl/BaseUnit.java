@@ -13,7 +13,7 @@ import com.game.base.IUnit;
  */
 public class BaseUnit implements IUnit {
     private String code;
-    private String unitName;
+    private String unitName = "12L";
     private IModel model;
 
     public String getCode() {
