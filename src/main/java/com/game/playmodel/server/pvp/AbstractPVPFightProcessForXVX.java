@@ -3,9 +3,11 @@ package com.game.playmodel.server.pvp;
 import java.util.ArrayList;
 import java.util.List;
 
+import com.game.base.impl.FightUnit;
 import com.game.load.IUser;
 import com.game.playmodel.server.IFightAction;
 import com.game.playmodel.server.IFightProcess;
+import com.game.playmodel.server.IFightResult;
 
 public abstract class AbstractPVPFightProcessForXVX implements IFightProcess {
 
@@ -19,7 +21,14 @@ public abstract class AbstractPVPFightProcessForXVX implements IFightProcess {
 	public List<IFightAction> getFightProcess() {
 		List<IFightAction> actions = new ArrayList<IFightAction>();
 		while(!this.isOver()){
-			actions.add(this.getOneAction());
+			IFightAction a = this.getOneAction();
+			for(IFightResult r : a.getResult()){
+				FightUnit fu = (FightUnit) r.getUser().getUnit();
+				if(fu.getLife() < 0){
+					a.getDes().remove(r.getUser());
+				}
+			}
+			actions.add(a);
 		}
 		return actions;
 	}
@@ -43,8 +52,6 @@ public abstract class AbstractPVPFightProcessForXVX implements IFightProcess {
 		this.actionType = actionType;
 	}
 
-	protected abstract IFightAction getOneAction();
-
 	public void setSrc(List<IUser> src) {
 		this.src = src;
 	}
@@ -57,6 +64,12 @@ public abstract class AbstractPVPFightProcessForXVX implements IFightProcess {
 		src = groups.get(0);
 		des = groups.get(1);
 	}
+
+	/**
+	 * 现在应该由谁出现什么样的操作，可系统控制也可玩家控制，看实现
+	 * @return
+	 */
+	protected abstract IFightAction getOneAction();
 	
 	
 

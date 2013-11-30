@@ -7,6 +7,9 @@ import com.game.load.impl.UserWarrior;
 
 
 public class UserFactory {
+	
+	private static int userId = 0;
+	
 	public static IUser creator(String name,String gender,String work, ICountry country){
 		//getClass ����Sample һ���ʹ�ö�̬��װ��װ���ࡣ
 		if (work.equals("2")){
@@ -14,6 +17,7 @@ public class UserFactory {
             userMaster.setUserName(name);
             userMaster.setGender(Integer.getInteger(gender));
             userMaster.setCountry(country);
+            userMaster.setId(++userId);
 			return userMaster;
         }else if (work.equals("1")){
 
@@ -21,8 +25,12 @@ public class UserFactory {
             userWarrior.setUserName(name);
             userWarrior.setGender(Integer.getInteger(gender));
             userWarrior.setCountry(country);
+            userWarrior.setId(++userId);
 			return userWarrior;
-        }else
-			return new User();
+        }else{
+        	IUser user = new User();
+			user.setId(++userId);
+			return user;
 		}
+	}
 }

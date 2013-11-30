@@ -73,12 +73,22 @@ public class UserWithDetail implements IUser, IScoreable {
 
     @Override
     public ICountry getCountry() {
-        return null;  //To change body of implemented methods use File | Settings | File Templates.
+        return user.getCountry();
     }
 
     @Override
     public String getProfession() {
-        return null;  //To change body of implemented methods use File | Settings | File Templates.
+        return user.getProfession();
     }
+
+	@Override
+	public Integer getId() {
+		return user.getId();
+	}
+
+	@Override
+	public void setId(Integer id) {
+		user.setId(id);
+	}
 
 }

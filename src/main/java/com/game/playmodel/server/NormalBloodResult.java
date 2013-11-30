@@ -1,6 +1,7 @@
 package com.game.playmodel.server;
 
 import com.game.base.IShow;
+import com.game.base.impl.FightUnit;
 import com.game.load.IUser;
 
 public class NormalBloodResult implements IFightResult {
@@ -54,8 +55,20 @@ public class NormalBloodResult implements IFightResult {
 		this.harmStratege = harmStratege;
 	}
 
-	private int getHarm(){
+	public float getHarm(){
 		return harmStratege.getHarm(this.action.getBaseHurm(), this.getUser());
+	}
+
+	@Override
+	public IFightResult create(IUser user, IFightAction action) {
+		NormalBloodResult r = new NormalBloodResult();
+		r.setAction(action);
+		r.setHarmStratege(harmStratege);
+		r.setShow(show);
+		r.setUser(user);
+		FightUnit fu = (FightUnit) user.getUnit();
+		fu.setLife(fu.getLife() - r.getHarm());
+		return r;
 	}
 
 }

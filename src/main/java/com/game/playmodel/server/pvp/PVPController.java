@@ -20,7 +20,7 @@ public class PVPController implements IPVPController {
 			new ArrayList<UserWithDetail>();
 	
 	public void addUser(IUser user, PVPModel model){
-    	System.out.print("正在匹配中。。。");
+    	System.out.println("正在匹配中。。。");
     	UserWithDetail us = new UserWithDetail();
     	us.setUser(user);
     	us.setModel(model);
@@ -36,15 +36,35 @@ public class PVPController implements IPVPController {
     	}
     	List<List<List<IUser>>> pvpresults = pVPMatchStrateger.match(unmatchUsers);
     	for(List<List<IUser>> result : pvpresults){
+    		//分组完毕，进入战斗
+    		String strResult = "";
+    		strResult += "匹配成功对战玩家：\n";
+			int i = 1;
+			for(List<IUser> group : result){
+	    		strResult += "团队" + i + ":";
+				for(IUser u : group){
+		    		strResult += u.getUserName() + ",";
+				}
+	    		strResult += "\n";
+	    		i++;
+			}
+        	for(List<IUser> group : result){
+            	for(IUser u : group){
+            		UserWithDetail ud = (UserWithDetail)u;
+            		PVPModel m = (PVPModel)ud.getModel();
+            		m.setUsers(result);
+            		m.setStrGroups(strResult);
+            		m.setMatched(true);
+            	}
+        	}
+        	//战斗进行时
     		process.setUsers(result);
     		List<IFightAction> actions = process.getFightProcess();
         	for(List<IUser> group : result){
             	for(IUser u : group){
             		UserWithDetail ud = (UserWithDetail)u;
             		PVPModel m = (PVPModel)ud.getModel();
-            		m.setUsers(result);
             		m.setActions(actions);
-            		m.setMatched(true);
             	}
         	}
     	}

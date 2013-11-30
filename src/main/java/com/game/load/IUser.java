@@ -19,4 +19,6 @@ public interface IUser {
     IUnit getUnit();
     ICountry getCountry();
     String getProfession();
+    Integer getId();
+    void setId(Integer id);
 }

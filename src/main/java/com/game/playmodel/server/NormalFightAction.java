@@ -4,6 +4,7 @@ import java.util.LinkedList;
 import java.util.List;
 
 import com.game.base.IShow;
+import com.game.base.impl.FightUnit;
 import com.game.load.IUser;
 
 /**
@@ -19,18 +20,20 @@ public class NormalFightAction implements IFightAction {
 	String resultType = "NormalBloodResult";
 	String type = "NormalFightAction";
 	List<IFightResult> result = new LinkedList<IFightResult>();
+	float baseHarm = 0;
+	String strAction = "";
 	
 	public NormalFightAction(List<IUser> src, List<IUser> des){
 		this.src = src; 
 		this.des = des;
-		IFightResult r = FightResultFactory.getFightResult(getResultType());
-		r.setAction(this);
-		result.add(r);
+		baseHarm = ((FightUnit) src.get(0).getUnit()).getAttack();
+		strAction = src.get(0).getUserName() + "发起了一次普通攻击";
+		result.add(FightResultFactory.getFightResult(getResultType(), des.get(0), this));
 	}
 
 	
-	public int getBaseHurm() {
-		return 100;
+	public float getBaseHurm() {
+		return  baseHarm;
 	}
 
 	public List<IFightResult> getResult() {
@@ -91,10 +94,18 @@ public class NormalFightAction implements IFightAction {
 
 	public void show() {
 		show.show();
+		System.out.println(strAction());
 		for(IFightResult r : result){
 			r.show();
 			System.out.println(r.getStrResult());
 		}
+		System.out.println();
+	}
+
+
+	@Override
+	public String strAction() {
+		return strAction;
 	}
 
 }

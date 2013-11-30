@@ -7,7 +7,7 @@ public class NormalHarmStratege implements IHarmStratege {
 	/**
 	 * 最基本的实现，没有各种抗性等
 	 */
-	public int getHarm(int basicHarm, IUser user) {
+	public float getHarm(float basicHarm, IUser user) {
 		return basicHarm;
 	}
 

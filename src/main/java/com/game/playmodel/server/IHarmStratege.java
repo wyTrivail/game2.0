@@ -4,6 +4,6 @@ import com.game.load.IUser;
 
 public interface IHarmStratege {
 	
-	int getHarm(int basicHarm, IUser user);
+	float getHarm(float basicHarm, IUser user);
 
 }

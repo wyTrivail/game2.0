@@ -47,7 +47,7 @@ public interface IFightAction {
 	 * @param user
 	 * @return
 	 */
-	int getBaseHurm();
+	float getBaseHurm();
 
 	/**
 	 * 动画
@@ -77,4 +77,10 @@ public interface IFightAction {
 	 * 展示动画
 	 */
 	void show();
+	
+	/**
+	 * 操作的文字描述
+	 * @return
+	 */
+	String strAction();
 }

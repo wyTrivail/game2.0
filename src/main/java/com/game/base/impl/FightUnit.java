@@ -47,4 +47,8 @@ public class FightUnit extends BaseUnit {
     public void setLife(float life) {
         this.life = life;
     }
+    
+    public float getAttack(){
+    	return this.attackAttribute.getHit(power, intelligence);
+    }
 }

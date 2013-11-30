@@ -53,11 +53,11 @@ public class Main {
 
         String name = bufferedReader.readLine();
         System.out.println("正在进入场景");
-            IUser user = UserFactory.creator(name, gender,work, country);
-            ISession session = SessionFactory.getSessioin();
-            session.setCurrentUser(user);
-            IScene scene = SceneFactory.creator(1);
-            scene.load();
+        IUser user = UserFactory.creator(name, gender,work, country);
+        ISession session = SessionFactory.getSessioin();
+        session.setCurrentUser(user);
+        IScene scene = SceneFactory.creator(1);
+        scene.load();
         System.out.println("欢迎进入我方阵营！");
         PlayModelController playModelController = 
         		PlayModelControllerFactory.getPlayModelController();

@@ -57,4 +57,16 @@ public class User implements IUser {
     public String getUserName() {
         return this.userName;
     }
+    
+    Integer id;
+    
+	@Override
+	public Integer getId() {
+		return id;
+	}
+
+	@Override
+	public void setId(Integer id) {
+		this.id = id;
+	}
 }

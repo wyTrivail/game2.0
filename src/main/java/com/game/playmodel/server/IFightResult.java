@@ -4,7 +4,7 @@ import com.game.base.IShow;
 import com.game.load.IUser;
 
 /**
- * 战斗的结果，可以是一招的结果，也可以是一场战斗的结果
+ * 战斗的结果，一招的结果
  * 但主体只有一个
  * @author XR
  *
@@ -16,6 +16,12 @@ public interface IFightResult {
 	 * @return
 	 */
 	IUser getUser();
+	
+	/**
+	 * 结果的主体
+	 * @param user
+	 */
+	void setUser(IUser user);
 	
 	/**
 	 * 返回结果类型，如掉血、减防等等
@@ -58,5 +64,11 @@ public interface IFightResult {
 	 * @param harmStratege
 	 */
 	void setHarmStratege(IHarmStratege harmStratege);
+	
+	/**
+	 * 自己生成一个结果
+	 * @return
+	 */
+	IFightResult create(IUser user, IFightAction action);
 
 }

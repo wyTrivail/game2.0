@@ -23,6 +23,10 @@ public class PVPModel implements IPlayModel{
     private boolean matched = false;
     
     private List<IFightAction> actions;
+    
+    private List<IUser> myGroup; 
+    
+    private String strGroups;
 	
     @Override
     public void play() {
@@ -31,19 +35,43 @@ public class PVPModel implements IPlayModel{
     	int times = 0;
     	while(times < 10){
     		try {
-				Thread.sleep(5000);
+				Thread.sleep(1000);
 			} catch (InterruptedException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
 
     		if(this.matched){
+    			//展示队员
+    			System.out.print(this.strGroups);
+    			//等待战斗结束
+    			while(actions == null){
+    	    		try {
+    					Thread.sleep(1000);
+    				} catch (InterruptedException e) {
+    					// TODO Auto-generated catch block
+    					e.printStackTrace();
+    				}
+    			}
     			for(IFightAction a : actions){
     				a.show();
     			}
+    			break;
     		}
     	}
-    	System.out.println("匹配失败，继续其他模式吧");
+    	if(!this.matched){
+        	System.out.println("匹配失败，继续其他模式吧");
+    	}else{
+    		if(myGroup.size() == 0){
+    			System.out.println("很遗憾，你输了");
+    		}else{
+        		if(this.isLive()){
+        			System.out.println("恭喜你，你赢了，并且活到了最后，");
+        		}else{
+        			System.out.println("恭喜你，你赢了，并且光荣的牺牲了，");
+        		}
+    		}
+    	}
     }
 
 	public IPVPController getController() {
@@ -59,6 +87,13 @@ public class PVPModel implements IPlayModel{
 	}
 
 	public void setUsers(List<List<IUser>> users) {
+		for(List<IUser> group : users){
+			for(IUser user : group){
+				if(user.getId().equals(SessionFactory.getSessioin().getCurrentUser().getId())){
+					myGroup = group;
+				}
+			}
+		}
 		this.users = users;
 	}
 
@@ -68,5 +103,22 @@ public class PVPModel implements IPlayModel{
 
 	public void setActions(List<IFightAction> actions) {
 		this.actions = actions;
+	}
+	
+	private boolean isLive(){
+		for(IUser user : myGroup){
+			if(user.getId().equals(SessionFactory.getSessioin().getCurrentUser().getId())){
+				return true;
+			}
+		}
+		return false;
+	}
+
+	public String getStrGroups() {
+		return strGroups;
+	}
+
+	public void setStrGroups(String strGroups) {
+		this.strGroups = strGroups;
 	}
 }
