@@ -1,8 +1,5 @@
 package com.game.playmodel.server.pvp;
 
-import java.util.List;
-
-import com.game.load.IUser;
 import com.game.playmodel.server.FlightActionFactory;
 import com.game.playmodel.server.IFightAction;
 

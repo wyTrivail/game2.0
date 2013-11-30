@@ -4,9 +4,7 @@ import java.util.List;
 
 import com.game.playmodel.client.IPlayModel;
 import com.game.playmodel.server.IFightAction;
-import com.game.playmodel.server.IFightProcess;
 import com.game.playmodel.server.pvp.IPVPController;
-import com.game.playmodel.server.pvp.IUserScoreStrateger;
 import com.game.base.SessionFactory;
 import com.game.load.IUser;
 /**
@@ -26,6 +24,7 @@ public class PVPModel implements IPlayModel{
     
     private List<IFightAction> actions;
 	
+    @Override
     public void play() {
     	IUser user = SessionFactory.getSessioin().getCurrentUser();
     	controller.addUser(user, this);
