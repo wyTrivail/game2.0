@@ -20,7 +20,13 @@ public class User implements IUser {
     public IUnit getUnit() {
 		return unit;
 	}
-	public void setUnit(IUnit unit) {
+
+    @Override
+    public ICountry getCountry() {
+        return country;
+    }
+
+    public void setUnit(IUnit unit) {
 		this.unit = unit;
 	}
 	public String getProfession() {

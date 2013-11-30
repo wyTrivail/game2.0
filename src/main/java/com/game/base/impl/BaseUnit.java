@@ -36,6 +36,17 @@ public class BaseUnit implements IUnit {
         return model;
     }
 
+    @Override
+    public float getLife() {
+        return 0;  //To change body of implemented methods use File | Settings | File Templates.
+    }
+
+    @Override
+    public void setLife(float life) {
+        //To change body of implemented methods use File | Settings | File Templates.
+    }
+
+
     public void setModel(IModel model) {
         this.model = model;
     }

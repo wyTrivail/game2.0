@@ -14,14 +14,14 @@ public class UserFactory {
             userMaster.setUserName(name);
             userMaster.setGender(Integer.getInteger(gender));
             userMaster.setCountry(country);
-			return new UserMaster();
+			return userMaster;
         }else if (work.equals("1")){
 
             IUser userWarrior = new UserWarrior();
             userWarrior.setUserName(name);
             userWarrior.setGender(Integer.getInteger(gender));
             userWarrior.setCountry(country);
-			return new UserWarrior();
+			return userWarrior;
         }else
 			return new User();
 		}

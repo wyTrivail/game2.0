@@ -17,4 +17,6 @@ public interface IUser {
     void setUserName(String userName);
     void setUnit(IUnit unit);
     IUnit getUnit();
+    ICountry getCountry();
+    String getProfession();
 }

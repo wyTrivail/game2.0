@@ -2,6 +2,7 @@ package com.game.load.impl;
 
 import com.game.load.IBuildingStyle;
 import com.game.load.ICountry;
+import com.game.load.IUser;
 
 import java.util.List;
 
@@ -14,7 +15,7 @@ import java.util.List;
  */
 public class Country implements ICountry{
     private IBuildingStyle buildingStyle;
-    private List<User> user;
+    private List<IUser> user;
     private String name;
 
     @Override
@@ -30,5 +31,15 @@ public class Country implements ICountry{
     @Override
     public void setName(String name) {
         this.name = name;
+    }
+
+    @Override
+    public String getName() {
+        return this.name;
+    }
+
+    @Override
+    public List<IUser> getNPCS() {
+        return this.user;
     }
 }
