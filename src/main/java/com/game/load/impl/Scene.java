@@ -40,10 +40,15 @@ public abstract class Scene implements IScene{
 	public final void load() {
         //To change body of implemented methods use File | Settings | File Templates.
 
+        System.out.println("加载时间模块");
     	timeManagement();
+        System.out.println("加载操作菜单");
     	manipulationMenu();
+        System.out.println("加载世界地图");
     	worldMap();
+        System.out.println("加载背景图片");
     	backgroundPicture();
+        System.out.println("加载背景音乐");
     	backgroundMusic();
     	allocUnit();
     }
@@ -54,6 +59,11 @@ public abstract class Scene implements IScene{
     protected abstract void backgroundMusic();
     
     protected void allocUnit(){
+        System.out.println("渲染场景");
+        System.out.println("阵营："+myUser.getCountry().getName());
+        System.out.println("主公:"+myUser.getCountry().getNPCS().get(0).getUserName());
+        System.out.println("姓名:"+myUser.getUserName());
+        System.out.println("职业:"+myUser.getProfession());
 
         myUser.getUnit().draw();
         /*npc=UserFactory.creator(3);

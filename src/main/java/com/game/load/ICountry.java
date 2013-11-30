@@ -13,4 +13,6 @@ public interface ICountry {
     void setNPCs(List npcs);
     void setBuildingStyle(IBuildingStyle buildingStyle);
     void setName(String name);
+    String getName();
+    List<IUser> getNPCS();
 }

@@ -14,7 +14,7 @@ public class UserMaster extends User {
            iUnit.setModel(new BaseModel());
            iUnit.setAttackAttribute(new MagicAttack());
            this.setUnit(iUnit);
-    	   this.setProfession("MASTER");
+    	   this.setProfession("法师");
     	    System.out.println(this.getProfession());
        }
 }

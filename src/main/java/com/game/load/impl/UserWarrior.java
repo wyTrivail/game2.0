@@ -11,7 +11,7 @@ public class UserWarrior extends User {
         unit.setModel(new BaseModel());
         unit.setAttackAttribute(new PhysicsAttack());
         this.setUnit(unit);
-		this.setProfession("WARRIOR");
+		this.setProfession("战士");
 		System.out.println(this.getProfession());
 	}
 
