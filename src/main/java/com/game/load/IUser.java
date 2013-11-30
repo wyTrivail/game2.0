@@ -8,5 +8,7 @@ package com.game.load;
  * To change this template use File | Settings | File Templates.
  */
 public interface IUser {
+	
+	String getUserName();
 
 }

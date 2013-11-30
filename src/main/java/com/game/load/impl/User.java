@@ -33,4 +33,7 @@ public class User implements IUser {
 	public void setGender(Integer gender) {
 		this.gender = gender;
 	}
+	public String getUserName() {
+		return "username";
+	}
 }

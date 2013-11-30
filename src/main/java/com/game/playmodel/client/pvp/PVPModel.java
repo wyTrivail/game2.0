@@ -26,13 +26,17 @@ public class PVPModel implements IPlayModel{
     
     private List<IFightAction> actions;
 	
-    @Override
     public void play() {
     	IUser user = SessionFactory.getSessioin().getCurrentUser();
     	controller.addUser(user, this);
     	int times = 0;
     	while(times < 10){
-    		Thread.sleep(5000);
+    		try {
+				Thread.sleep(5000);
+			} catch (InterruptedException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
     		if(this.matched){
     			for(IFightAction a : actions){
     				a.show();

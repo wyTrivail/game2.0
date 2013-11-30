@@ -1,6 +1,8 @@
 package com.game;
 
+import com.game.base.SessionFactory;
 import com.game.load.IScene;
+import com.game.load.IUser;
 import com.game.load.impl.Scene;
 import com.game.load.impl.User;
 import com.game.playmodel.client.IPlayModel;
