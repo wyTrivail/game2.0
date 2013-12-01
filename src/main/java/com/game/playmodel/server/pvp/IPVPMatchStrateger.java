@@ -11,6 +11,14 @@ import com.game.load.IUser;
  */
 public interface IPVPMatchStrateger {
 	
-	List<List<List<IUser>>> match(List<UserWithDetail> unmatchUsers);
+	/**
+	 * 用户战力算法
+	 * @param userScoreStrateger
+	 */
+	void setUserScoreStrateger(IUserScoreStrateger userScoreStrateger);
+	
+	IUserScoreStrateger getUserScoreStrateger();
+	
+	List<List<List<IUser>>> match(List<PVPUserAdapter> unmatchUsers);
 
 }

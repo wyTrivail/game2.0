@@ -4,7 +4,7 @@ import java.util.List;
 
 import com.game.playmodel.client.IPlayModel;
 import com.game.playmodel.server.IFightAction;
-import com.game.playmodel.server.pvp.IPVPController;
+import com.game.playmodel.server.IPlayController;
 import com.game.base.SessionFactory;
 import com.game.load.IUser;
 /**
@@ -16,7 +16,7 @@ import com.game.load.IUser;
  */
 public class PVPModel implements IPlayModel{
 	
-	private IPVPController controller;
+	private IPlayController controller;
     
     private List<List<IUser>> users = null;
     
@@ -74,11 +74,11 @@ public class PVPModel implements IPlayModel{
     	}
     }
 
-	public IPVPController getController() {
+	public IPlayController getController() {
 		return controller;
 	}
 
-	public void setController(IPVPController controller) {
+	public void setController(IPlayController controller) {
 		this.controller = controller;
 	}
 

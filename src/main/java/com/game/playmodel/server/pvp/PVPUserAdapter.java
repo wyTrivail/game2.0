@@ -5,7 +5,7 @@ import com.game.load.ICountry;
 import com.game.load.IUser;
 import com.game.playmodel.client.IPlayModel;
 
-public class UserWithDetail implements IUser, IScoreable {
+public class PVPUserAdapter implements IUser, IScoreable {
 	
 	private IUser user;
 	

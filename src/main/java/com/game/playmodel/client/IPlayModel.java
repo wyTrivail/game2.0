@@ -1,6 +1,7 @@
 package com.game.playmodel.client;
 
 /**
+ * 客户端中用户的游戏模式
  * Created with IntelliJ IDEA.
  * User: xianliu.wy
  * Date: 13-11-26

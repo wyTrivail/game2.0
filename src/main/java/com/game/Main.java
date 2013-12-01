@@ -6,8 +6,7 @@ import com.game.load.IUser;
 import com.game.base.ISession;
 import com.game.load.*;
 import com.game.load.impl.*;
-import com.game.playmodel.client.PlayModelController;
-import com.game.playmodel.client.PlayModelControllerFactory;
+import com.game.playmodel.client.PlayModelFactory;
 
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
@@ -59,11 +58,9 @@ public class Main {
         IScene scene = SceneFactory.creator(1);
         scene.load();
         System.out.println("欢迎进入我方阵营！");
-        PlayModelController playModelController = 
-        		PlayModelControllerFactory.getPlayModelController();
-        playModelController.getPlayModel("pvp5v5").play();
-        playModelController.getPlayModel("pvp10v10").play();
-        playModelController.getPlayModel("pvp5v5v5").play();
+        PlayModelFactory.getPlayModel("pvp5v5").play();
+        PlayModelFactory.getPlayModel("pvp10v10").play();
+        PlayModelFactory.getPlayModel("pvp5v5v5").play();
         /*System.out.println("请选择游戏模式");
         System.out.println("1.pvp; 2.pve");
 

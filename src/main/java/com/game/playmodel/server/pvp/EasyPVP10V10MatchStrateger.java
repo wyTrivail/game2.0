@@ -7,7 +7,7 @@ import com.game.load.IUser;
 
 public class EasyPVP10V10MatchStrateger implements IPVPMatchStrateger {
 
-	public List<List<List<IUser>>> match(List<UserWithDetail> users) {
+	public List<List<List<IUser>>> match(List<PVPUserAdapter> users) {
 		List<List<List<IUser>>> results = new ArrayList<List<List<IUser>>>();
 		while(users.size() >= 20){
 			List<List<IUser>> result = new ArrayList<List<IUser>>();
@@ -28,6 +28,18 @@ public class EasyPVP10V10MatchStrateger implements IPVPMatchStrateger {
 			results.add(result);
 		}
 		return results;
+	}
+
+	private IUserScoreStrateger userScoreStrateger;
+	
+	@Override
+	public void setUserScoreStrateger(IUserScoreStrateger userScoreStrateger) {
+		this.userScoreStrateger = userScoreStrateger;
+	}
+
+	@Override
+	public IUserScoreStrateger getUserScoreStrateger() {
+		return userScoreStrateger;
 	}
 
 }

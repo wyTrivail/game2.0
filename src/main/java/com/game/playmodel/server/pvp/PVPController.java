@@ -4,29 +4,29 @@ import java.util.ArrayList;
 import java.util.List;
 
 import com.game.load.IUser;
+import com.game.playmodel.client.IPlayModel;
 import com.game.playmodel.client.pvp.PVPModel;
 import com.game.playmodel.server.IFightAction;
 import com.game.playmodel.server.IFightProcess;
+import com.game.playmodel.server.IPlayController;
 
-public class PVPController implements IPVPController {
+public class PVPController implements IPlayController {
 	
 	private IPVPMatchStrateger pVPMatchStrateger;
 	
-	private IUserScoreStrateger userScoreStrateger;
-	
 	private IFightProcess process;
 	
-	private List<UserWithDetail> unmatchUsers = 
-			new ArrayList<UserWithDetail>();
+	private List<PVPUserAdapter> unmatchUsers = 
+			new ArrayList<PVPUserAdapter>();
 	
-	public void addUser(IUser user, PVPModel model){
+	public void addUser(IUser user, IPlayModel model){
     	System.out.println("正在匹配中。。。");
-    	UserWithDetail us = new UserWithDetail();
+    	PVPUserAdapter us = new PVPUserAdapter();
     	us.setUser(user);
     	us.setModel(model);
-    	us.setScore(userScoreStrateger.getScore(user));
+    	us.setScore(pVPMatchStrateger.getUserScoreStrateger().getScore(user));
     	boolean added = false;
-    	for(UserWithDetail u : unmatchUsers){
+    	for(PVPUserAdapter u : unmatchUsers){
     		if(u.getScore() < us.getScore()){
     			unmatchUsers.add(unmatchUsers.indexOf(u), us);
     		}
@@ -50,7 +50,7 @@ public class PVPController implements IPVPController {
 			}
         	for(List<IUser> group : result){
             	for(IUser u : group){
-            		UserWithDetail ud = (UserWithDetail)u;
+            		PVPUserAdapter ud = (PVPUserAdapter)u;
             		PVPModel m = (PVPModel)ud.getModel();
             		m.setUsers(result);
             		m.setStrGroups(strResult);
@@ -62,7 +62,7 @@ public class PVPController implements IPVPController {
     		List<IFightAction> actions = process.getFightProcess();
         	for(List<IUser> group : result){
             	for(IUser u : group){
-            		UserWithDetail ud = (UserWithDetail)u;
+            		PVPUserAdapter ud = (PVPUserAdapter)u;
             		PVPModel m = (PVPModel)ud.getModel();
             		m.setActions(actions);
             	}
@@ -72,10 +72,6 @@ public class PVPController implements IPVPController {
 
 	public void setPVPMatchStrateger(IPVPMatchStrateger pVPMatchStrateger) {
 		this.pVPMatchStrateger = pVPMatchStrateger;
-	}
-
-	public void setUserScoreStrateger(IUserScoreStrateger userScoreStrateger) {
-		this.userScoreStrateger = userScoreStrateger;
 	}
 
 	public void setProcess(IFightProcess process) {

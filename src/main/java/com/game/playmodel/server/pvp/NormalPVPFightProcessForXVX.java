@@ -5,7 +5,7 @@ import com.game.playmodel.server.IFightAction;
 
 public class NormalPVPFightProcessForXVX extends AbstractPVPFightProcessForXVX {
 	
-	int turn = 1;
+	int turn = 0;
 
 	@Override
 	protected IFightAction getOneAction() {
@@ -20,6 +20,10 @@ public class NormalPVPFightProcessForXVX extends AbstractPVPFightProcessForXVX {
 
 	public String getType() {
 		return "NormalPVPFightProcessForXVX";
+	}
+
+	public void setTurn(int turn) {
+		this.turn = turn;
 	}
 
 }
