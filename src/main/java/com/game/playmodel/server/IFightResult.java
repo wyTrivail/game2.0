@@ -70,5 +70,12 @@ public interface IFightResult {
 	 * @return
 	 */
 	IFightResult create(IUser user, IFightAction action);
+	
+	/**
+	 * 使结果产生影响
+	 * @param user
+	 * @param action
+	 */
+	void doResult();
 
 }

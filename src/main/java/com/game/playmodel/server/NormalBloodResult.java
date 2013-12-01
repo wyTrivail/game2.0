@@ -66,9 +66,14 @@ public class NormalBloodResult implements IFightResult {
 		r.setHarmStratege(harmStratege);
 		r.setShow(show);
 		r.setUser(user);
-		FightUnit fu = (FightUnit) user.getUnit();
-		fu.setLife(fu.getLife() - r.getHarm());
+		r.doResult();
 		return r;
+	}
+
+	@Override
+	public void doResult() {
+		FightUnit fu = (FightUnit) user.getUnit();
+		fu.setLife(fu.getLife() - this.getHarm());
 	}
 
 }

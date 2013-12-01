@@ -8,6 +8,7 @@ public class FightResultFactory {
 	
 	private static IHarmStratege normalHarmStratege = new NormalHarmStratege();
 	private static IShow normalShow = new NormalShow();
+	
 	private static IFightResult normalBloodResult = new NormalBloodResult();
 	
 	static{

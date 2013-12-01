@@ -1,17 +1,17 @@
-package com.game.playmodel.server.pvp;
+package com.game.playmodel.server;
 
 import com.game.base.IUnit;
 import com.game.load.ICountry;
 import com.game.load.IUser;
-import com.game.playmodel.client.IPlayModel;
+import com.game.playmodel.client.IPVPModel;
 
-public class PVPUserAdapter implements IUser, IScoreable {
+public class PVPUserAdapter implements IUser, IPVPUser {
 	
 	private IUser user;
 	
 	private double score;
 	
-	private IPlayModel model;
+	private IPVPModel model;
 
 	public double getScore() {
 		return score;
@@ -29,11 +29,11 @@ public class PVPUserAdapter implements IUser, IScoreable {
 		this.user = user;
 	}
 
-	public IPlayModel getModel() {
+	public IPVPModel getModel() {
 		return model;
 	}
 
-	public void setModel(IPlayModel model) {
+	public void setModel(IPVPModel model) {
 		this.model = model;
 	}
 

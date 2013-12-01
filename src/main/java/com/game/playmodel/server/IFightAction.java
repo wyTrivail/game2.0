@@ -83,4 +83,17 @@ public interface IFightAction {
 	 * @return
 	 */
 	String strAction();
+	
+	/**
+	 * 自己创建自己
+	 * @param src
+	 * @param des
+	 * @return
+	 */
+	IFightAction create(List<IUser> src, List<IUser> des);
+	
+	/**
+	 * 产生操作的影响，获取result
+	 */
+	void doAction();
 }

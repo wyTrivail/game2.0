@@ -23,9 +23,18 @@ public class NormalFightAction implements IFightAction {
 	float baseHarm = 0;
 	String strAction = "";
 	
-	public NormalFightAction(List<IUser> src, List<IUser> des){
-		this.src = src; 
-		this.des = des;
+	@Override
+	public IFightAction create(List<IUser> src, List<IUser> des){
+		NormalFightAction action = new NormalFightAction();
+		action.setShow(show);
+		action.setDes(des);
+		action.setSrc(src);
+		action.doAction();
+		return action;
+	}
+
+	@Override
+	public void doAction(){
 		baseHarm = ((FightUnit) src.get(0).getUnit()).getAttack();
 		strAction = src.get(0).getUserName() + "发起了一次普通攻击";
 		result.add(FightResultFactory.getFightResult(getResultType(), des.get(0), this));

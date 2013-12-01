@@ -4,10 +4,21 @@ import java.util.ArrayList;
 import java.util.List;
 
 import com.game.load.IUser;
+import com.game.playmodel.server.IGroupScoreStratege;
+import com.game.playmodel.server.IPVPMatchStratege;
+import com.game.playmodel.server.PVPUserAdapter;
 
-public class EasyPVP10V10MatchStrateger implements IPVPMatchStrateger {
+public class EasyPVP10V10MatchStrateger implements IPVPMatchStratege {
+	
+	private static EasyPVP10V10MatchStrateger easyPVP10V10MatchStrateger = new EasyPVP10V10MatchStrateger();
+			
+	private EasyPVP10V10MatchStrateger(){}
+	
+	public static EasyPVP10V10MatchStrateger getEasyPVP10V10MatchStrateger(){
+		return easyPVP10V10MatchStrateger;
+	}
 
-	public List<List<List<IUser>>> match(List<PVPUserAdapter> users) {
+	public List<List<List<IUser>>> match(List<PVPUserAdapter> users, IGroupScoreStratege stratege) {
 		List<List<List<IUser>>> results = new ArrayList<List<List<IUser>>>();
 		while(users.size() >= 20){
 			List<List<IUser>> result = new ArrayList<List<IUser>>();
@@ -28,18 +39,6 @@ public class EasyPVP10V10MatchStrateger implements IPVPMatchStrateger {
 			results.add(result);
 		}
 		return results;
-	}
-
-	private IUserScoreStrateger userScoreStrateger;
-	
-	@Override
-	public void setUserScoreStrateger(IUserScoreStrateger userScoreStrateger) {
-		this.userScoreStrateger = userScoreStrateger;
-	}
-
-	@Override
-	public IUserScoreStrateger getUserScoreStrateger() {
-		return userScoreStrateger;
 	}
 
 }

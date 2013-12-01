@@ -1,6 +1,7 @@
 package com.game.base.impl;
 
 import com.game.base.IModel;
+import com.game.base.IShape;
 
 /**
  * Created with IntelliJ IDEA.
@@ -11,7 +12,16 @@ import com.game.base.IModel;
  */
 public class BaseModel implements IModel {
     private String modelName = "model1";
-    private String shape = "sphere";
+
+    public IShape getShape() {
+        return shape;
+    }
+
+    public void setShape(IShape shape) {
+        this.shape = shape;
+    }
+
+    private IShape shape = new Cylinder();
     private String color = "blue";
 
     @Override

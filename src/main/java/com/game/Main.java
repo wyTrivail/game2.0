@@ -1,15 +1,30 @@
 package com.game;
 
+import java.io.BufferedReader;
+import java.io.InputStreamReader;
+import java.util.HashMap;
+import java.util.Map;
+
+import com.game.base.ISession;
 import com.game.base.SessionFactory;
+import com.game.load.ICountry;
+import com.game.load.ICountryFactory;
 import com.game.load.IScene;
 import com.game.load.IUser;
-import com.game.base.ISession;
 import com.game.load.*;
 import com.game.load.impl.*;
 import com.game.playmodel.client.PlayModelFactory;
 
-import java.io.BufferedReader;
-import java.io.InputStreamReader;
+import com.game.load.SceneFactory;
+import com.game.load.UserFactory;
+import com.game.load.impl.SuCountryFactory;
+import com.game.load.impl.WeiCountryFactory;
+import com.game.load.impl.WuCountryFactory;
+import com.game.playmodel.pve.Boss;
+import com.game.playmodel.pve.DecorateBJTK;
+import com.game.playmodel.pve.DecorateCD;
+import com.game.playmodel.pve.DecorateCTM;
+import com.game.playmodel.pve.DecorateXBM;
 
 /**
  * Created with IntelliJ IDEA.
@@ -20,7 +35,11 @@ import java.io.InputStreamReader;
  */
 public class Main {
     static ICountryFactory countryFactory;
+    static Map<String,String> map = new HashMap<String, String>();
     public static void main(String arg[])throws Exception{
+        map.put("1","pvp5v5");
+        map.put("2", "pvp5v5v5");
+        map.put("3", "pvp10v10");
         BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(System.in));
         System.out.println("欢迎进入三国无双online");
         System.out.println("请设定人物职业：");
@@ -58,21 +77,45 @@ public class Main {
         IScene scene = SceneFactory.creator(1);
         scene.load();
         System.out.println("欢迎进入我方阵营！");
-        PlayModelFactory.getPlayModel("pvp5v5").play();
-        PlayModelFactory.getPlayModel("pvp10v10").play();
-        PlayModelFactory.getPlayModel("pvp5v5v5").play();
-        /*System.out.println("请选择游戏模式");
-        System.out.println("1.pvp; 2.pve");
 
-        String gameModel = bufferedReader.readLine();
-        if(gameModel.equals("1")){//pvp
-            System.out.println("已进入竞技场，请输入竞技人数：");
-            PlayModelController playModelController =
-                    PlayModelControllerFactory.getPlayModelController();
-            playModelController.getPlayModel("pvp5v5").play();
-        }else{//pve
-
-        } */
+        while(true){
+	        System.out.println("请选择游戏模式");
+	        System.out.println("1.pvp; 2.pve");
+	
+	        String gameModel = bufferedReader.readLine();
+	        if(gameModel.equals("1")){//pvp
+	            System.out.println("请选择竞技场：");
+	            System.out.println("1.5v5; 2.5v5v5; 3.10v10");
+	            String num = bufferedReader.readLine();
+	            PlayModelFactory.getPlayModel(map.get(num)).play();
+	        }else{//pve
+	        	System.out.println("请选择boss：");
+	            System.out.println("1.华雄; 2.吕布");
+	            String num = bufferedReader.readLine();
+	            if(num.equals("1")){
+	            	Boss boss = new Boss("华雄");
+	            	
+	            	
+	            	boss.eqList.add(new DecorateCD(null));
+	            	boss.eqList.add(new DecorateXBM(null));
+	            	if(boss.eqList.size() != 0){
+	            		for(int i=0; i<boss.eqList.size(); i++)
+	            			boss.eqList.get(i).quip();
+	            	}
+	            	boss.play();
+	            }else if(num.equals("2")){
+	            	Boss boss = new Boss("吕布");
+	            	
+	            	boss.eqList.add(new DecorateCTM(null));
+	            	boss.eqList.add(new DecorateBJTK(null));
+	            	if(boss.eqList.size() != 0){
+	            		for(int i=0; i<boss.eqList.size(); i++)
+	            			boss.eqList.get(i).quip();
+	            	}
+	            	boss.play();
+	            } 
+	        }
+        }
 
     }
 }
