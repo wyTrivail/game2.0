@@ -1,18 +1,28 @@
 package com.game;
 
-import com.game.base.SessionFactory;
-import com.game.load.IScene;
-import com.game.load.IUser;
-import com.game.base.ISession;
-import com.game.load.*;
-import com.game.load.impl.*;
-import com.game.playmodel.client.PlayModelController;
-import com.game.playmodel.client.PlayModelControllerFactory;
-
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
 import java.util.HashMap;
 import java.util.Map;
+
+import com.game.base.ISession;
+import com.game.base.SessionFactory;
+import com.game.load.ICountry;
+import com.game.load.ICountryFactory;
+import com.game.load.IScene;
+import com.game.load.IUser;
+import com.game.load.SceneFactory;
+import com.game.load.UserFactory;
+import com.game.load.impl.SuCountryFactory;
+import com.game.load.impl.WeiCountryFactory;
+import com.game.load.impl.WuCountryFactory;
+import com.game.playmodel.client.PlayModelController;
+import com.game.playmodel.client.PlayModelControllerFactory;
+import com.game.playmodel.pve.Boss;
+import com.game.playmodel.pve.DecorateBJTK;
+import com.game.playmodel.pve.DecorateCD;
+import com.game.playmodel.pve.DecorateCTM;
+import com.game.playmodel.pve.DecorateXBM;
 
 /**
  * Created with IntelliJ IDEA.
@@ -81,9 +91,33 @@ public class Main {
                     PlayModelControllerFactory.getPlayModelController();
             playModelController.getPlayModel(map.get(num)).play();
         }else{//pve
-
+        	System.out.println("请选择boss：");
+            System.out.println("1.华雄; 2.吕布");
+            String num = bufferedReader.readLine();
+            if(num.equals("1")){
+            	Boss boss = new Boss("华雄");
+            	
+            	
+            	boss.eqList.add(new DecorateCD(null));
+            	boss.eqList.add(new DecorateXBM(null));
+            	if(boss.eqList.size() != 0){
+            		for(int i=0; i<boss.eqList.size(); i++)
+            			boss.eqList.get(i).quip();
+            	}
+            	boss.play();
+            }else if(num.equals("2")){
+            	Boss boss = new Boss("吕布");
+            	
+            	boss.eqList.add(new DecorateCTM(null));
+            	boss.eqList.add(new DecorateBJTK(null));
+            	if(boss.eqList.size() != 0){
+            		for(int i=0; i<boss.eqList.size(); i++)
+            			boss.eqList.get(i).quip();
+            	}
+            	boss.play();
+            } 
         }
-        }
+       }
 
     }
 }
